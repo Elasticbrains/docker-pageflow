@@ -1,29 +1,14 @@
-# README #
+# PAGEFLOW #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+=> First pull this repository and cd inside
 
-### What is this repository for? ###
+then
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
+```
+#!terminal
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+$ docker build -t pf:1.0 .
+$ docker run -it -p 3000:3000 pf:1.0
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+```
