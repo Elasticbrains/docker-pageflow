@@ -14,7 +14,7 @@ RUN rails new app --database=mysql
 
 WORKDIR /var/www/app
 
-RUN gem install mysql2 
+RUN gem install mysql2 -v 0.3.18
 
 RUN rake db:create
 
