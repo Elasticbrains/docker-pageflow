@@ -1,4 +1,4 @@
 #Gemfile
 gem 'pageflow'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'state_machine', git: 'https://github.com/codevise/state_machine.git'
