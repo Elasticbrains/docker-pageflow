@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password: root
-  host: mysql
+  host: localhost
 
 development:
   <<: *default
