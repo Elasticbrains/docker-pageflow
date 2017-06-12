@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "Docker CMD"
 
 echo "install Pageflow"
 
@@ -39,5 +40,3 @@ rake db:seed
 bundle exec rails server -b 0.0.0.0
 
 #nohup bundle exec rails server -b 0.0.0.0 &
-
-
