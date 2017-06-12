@@ -16,22 +16,13 @@ WORKDIR /var/www/app
 
 COPY ./src/Gemfile /var/www/app
 COPY ./src/database.yml /var/www/app/config
+COPY ./installpageflow.sh /var/www/app/installpageflow.sh
 
-RUN bundle update
-
-RUN bundle install
-
-RUN rake db:create
-
-RUN bundle install 
-
-RUN rails generate pageflow:install -f
-
-RUN rake db:migrate
-
-RUN rake db:seed
+RUN chmod +x installpageflow.sh
 
 EXPOSE 3000
 
-CMD ["bundle", "exec","rails", "server", "-b", "0.0.0.0"]
+ENTRYPOINT ["/bin/bash", "/var/www/app/installpageflow.sh"]
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 

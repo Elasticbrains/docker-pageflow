@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=pageflow_dev
+      - MYSQL_USER=pageflow
+      - MYSQL_PASSWORD=pageflow
+    ports:
+      - 3306:3306
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  pageflow:
+    container_name: pageflow
+    build: .
+    depends_on:
+          - mysql
+    links:
+      - mysql:mysql
+    volumes:
+      - ./src:/var/www/app
+    ports:
+      - 3000:3000
