@@ -12,13 +12,12 @@ WORKDIR /var/www
 
 RUN rails new app --database=mysql
 
-COPY ./src/database.yml /var/www/app/config
-COPY ./src/Gemfile /var/www/app
-
-
 WORKDIR /var/www/app
 
 RUN rake db:create
+
+COPY ./src/database.yml /var/www/app/config
+COPY ./src/Gemfile /var/www/app
 
 RUN bundle install 
 
