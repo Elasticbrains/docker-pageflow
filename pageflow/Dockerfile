@@ -18,13 +18,15 @@ COPY ./src/Gemfile /var/www/app
 
 WORKDIR /var/www/app
 
-RUN bundle install 
-
 RUN rake db:create
+
+RUN bundle install 
 
 RUN rails generate pageflow:install -f
 
 RUN rake db:migrate
+
+RUN rake db:seed
 
 EXPOSE 3000
 
