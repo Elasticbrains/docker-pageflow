@@ -1,41 +1,51 @@
 #!/bin/sh
 echo "Docker CMD"
 
-echo "install Pageflow"
+if [ ! -f install.mark ]; then
+    echo "Execute first installation!"
+    echo "start mysqld"
+    #Starting MySQl
+    nohup mysqld &
 
-echo "start mysqld"
-#Starting MySQl
-nohup mysqld &
+    echo "Waiting 5s that hopefully mysqld has startet"
+    sleep 5s
 
-echo "Waiting 5s that hopefully mysqld has startet"
-sleep 5s
+    mysqladmin -u root password root
 
-mysqladmin -u root password root
+    cd /var/www/app
 
-cd /var/www/app
+    bundle update
 
-bundle update
+    bundle install
 
-bundle install
+    rake db:create
 
-rake db:create
+    bundle install 
 
-bundle install 
+    echo "" >> Gemfile
+    echo "gem 'pageflow'" >> Gemfile
+    echo "gem 'state_machine', git: 'https://github.com/codevise/state_machine.git'" >> Gemfile
 
+    bundle update
 
-echo "" >> Gemfile
-echo "gem 'pageflow'" >> Gemfile
-echo "gem 'state_machine', git: 'https://github.com/codevise/state_machine.git'" >> Gemfile
+    bundle install
 
-bundle update
+    rails generate pageflow:install -f
 
-bundle install
+    rake db:migrate
 
-rails generate pageflow:install -f
+    rake db:seed
 
-rake db:migrate
+    touch install.mark
+else
+    echo "Already installed, start services"
+    echo "start mysqld"
+    #Starting MySQl
+    nohup mysqld &
 
-rake db:seed
+    echo "Waiting 5s that hopefully mysqld has startet"
+    sleep 5s
+fi
 
 bundle exec rails server -b 0.0.0.0
 
