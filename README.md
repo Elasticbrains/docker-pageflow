@@ -26,7 +26,7 @@ In the `docker run` command pageflow will be installed, this could take a while.
 
 Then you should be able to call http://localhost:3000 in your web browser.
 
-![](http://gph.is/292p3Rn)
+![](https://media.giphy.com/media/mCxUZJN8i2wrC/giphy.gif)
 
 The default User from pageflows db:seed is
 
