@@ -41,3 +41,7 @@ Pageflow isn't running properly! This is becuase of several things we still need
 1. Run Redis Workers for Pageflow
 2. Set up external Services, and find a Solution to combine this smart with Dockerfile. Following this instructions: [https://github.com/codevise/pageflow/wiki/Setting-up-External-Services](https://github.com/codevise/pageflow/wiki/Setting-up-External-Services)
 3. Maybe it would be a good idea to outsource the database and redis with a docker-compose.yaml
+
+Only then we can use the full power of Pageflow
+
+![](https://media.giphy.com/media/LLWP1seiT4fC/giphy.gif)
