@@ -23,7 +23,7 @@ In the `docker run` command pageflow will be installed, this could take a while.
 [2017-06-14 14:15:42] INFO  WEBrick::HTTPServer#start: pid=24 port=3000
 ```
 
-Then you should be able to call http://localhost:3000 in your web browser.
+Then you should be able to call http://localhost:3000 in your web browser. Please note that the first Request you make to Pageflow by Browser will take around 10 seconds until you see the Web View.
 
 ![](https://media.giphy.com/media/mCxUZJN8i2wrC/giphy.gif)
 
