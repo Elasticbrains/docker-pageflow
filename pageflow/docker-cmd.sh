@@ -1,14 +1,20 @@
 #!/bin/sh
 echo "Docker CMD"
 
+
+echo "Start Services"
+
+echo "start mysql"
+nohup mysqld &
+
+echo "start redis"
+nohup redis-server &
+
+echo "Waiting 5s to give services time to be available"
+sleep 5s
+
 if [ ! -f install.mark ]; then
     echo "Execute first installation!"
-    echo "start mysqld"
-    #Starting MySQl
-    nohup mysqld &
-
-    echo "Waiting 5s that hopefully mysqld has startet"
-    sleep 5s
 
     mysqladmin -u root password root
 
@@ -38,15 +44,7 @@ if [ ! -f install.mark ]; then
 
     touch install.mark
 else
-    echo "Already installed, start services"
-    echo "start mysqld"
-    #Starting MySQl
-    nohup mysqld &
-
-    echo "Waiting 5s that hopefully mysqld has startet"
-    sleep 5s
+    echo "Everything is already installed"
 fi
 
 bundle exec rails server -b 0.0.0.0
-
-#nohup bundle exec rails server -b 0.0.0.0 &

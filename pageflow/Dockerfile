@@ -33,8 +33,6 @@ RUN chmod +x /var/www/app/docker-cmd.sh && \
 
 EXPOSE 3000
 
-# ENTRYPOINT ["/var/www/app/docker-entry-point.sh"]
-
 CMD ["/var/www/app/docker-cmd.sh"]
 
 
