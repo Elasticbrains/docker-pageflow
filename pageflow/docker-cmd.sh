@@ -42,6 +42,7 @@ if [ ! -f install.mark ]; then
 
     rake db:seed
 
+    #Create File to remember next time if we already installed everything
     touch install.mark
 else
     echo "Everything is already installed"
