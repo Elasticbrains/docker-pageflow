@@ -13,12 +13,12 @@ nohup redis-server &
 echo "Waiting 5s to give services time to be available"
 sleep 5s
 
+cd /var/www/app
+
 if [ ! -f install.mark ]; then
     echo "Execute first installation!"
 
     mysqladmin -u root password root
-
-    cd /var/www/app
 
     bundle update
 
@@ -47,5 +47,9 @@ if [ ! -f install.mark ]; then
 else
     echo "Everything is already installed"
 fi
+
+echo "Starting redis workers"
+BACKGROUND=yes QUEUE=* rake resque:work RAILS_ENV=development >>  worker1.log &
+BACKGROUND=yes QUEUE=* rake resque:scheduler RAILS_ENV=development >>  worker2.log &
 
 bundle exec rails server -b 0.0.0.0
