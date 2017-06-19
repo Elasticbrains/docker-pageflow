@@ -6,7 +6,7 @@ This Repo is based on the great Open Source Framework Pageflow, which you can fi
 
 ```bash
 $ git clone https://github.com/ElasticBrains/docker-pageflow.git
-$ cd docker-pageflow
+$ cd docker-pageflow/pageflow
 $ docker build -t pf:1.0 .
 $ docker run --rm -it -p 3000:3000 pf:1.0
 ```
