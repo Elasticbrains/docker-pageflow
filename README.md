@@ -45,3 +45,15 @@ Pageflow isn't running properly! This is becuase of several things we still need
 Only then we can use the full power of Pageflow
 
 ![](https://media.giphy.com/media/LLWP1seiT4fC/giphy.gif)
+
+## 3. Running Pageflow ##
+
+1. Insert your AWS and Zencoder Credentials in the credentials file before you run the docker run command
+2. You still need to set up the AWS S3-Buckets and Zencoder in order to get everything to work!
+
+## 4. Customizing Pageflow ##
+
+Customize your Pageflow and add new plugins and page-types according to:
+[https://github.com/codevise/pageflow/wiki](https://github.com/codevise/pageflow/wiki#extending-pageflow)
+
+![](https://media.giphy.com/media/3xz2Bw12fe9iyG06v6/giphy.gif)
